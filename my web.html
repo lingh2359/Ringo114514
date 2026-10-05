@@ -1,130 +1,146 @@
 ﻿<!DOCTYPE html>
-<html>
-<body>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的網站</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+  <style>
+    body {
+      font-family: Verdana, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #222;
+    }
 
-<h1>Welcome</h1>
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-<p style="font-size:25px;">歡迎來到我的網站</p>
+    h1, h2 {
+      margin-top: 0;
+    }
 
-<img src="5223.jpg" alt="Gugugaga" style="width:250px;height:300px;">
+    img, iframe, canvas {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-<p style="font-size:25px">這是我要給你看的影片</p>
-<div style="background-color:#f1f1f1;padding:15px;">
-<iframe width="918" height="516" src="https://www.youtube.com/embed/MFwtpM21wWc"></iframe>
-</div>
+    .section {
+      background: #f1f1f1;
+      padding: 15px;
+      margin: 20px 0;
+    }
 
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
-<p style="font-size:25px";>統計圖表</p>
+    .link-card {
+      padding: 10px 15px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
-<body>
+    .right-panel {
+      background: lightblue;
+      padding: 15px;
+    }
 
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
-
-<script>
-const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-const yValues = [80, 49, 44, 24, 15];
-const barColors = ["red", "green","blue","orange","brown"];
-
-const ctx = document.getElementById('myChart');
-
-new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    plugins: {
-      legend: {display: false},
-      title: {
-        display: true,
-        text: "World Wine Production 2018",
-        font: {size: 16}
+    @media (max-width: 700px) {
+      .layout {
+        display: block;
       }
     }
-  }
-});
-</script>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  box-sizing: border-box;
-}
-.menu {
-  float: left;
-  width: 20%;
-}
-.menuitem {
-  padding: 8px;
-  margin-top: 7px;
-  border-bottom: 1px solid #f1f1f1;
-}
-.main {
-  float: left;
-  width: 60%;
-  padding: 0 20px;
-  overflow: hidden;
-}
-.right {
-  background-color: lightblue;
-  float: left;
-  width: 20%;
-  padding: 10px 15px;
-  margin-top: 7px;
-}
-
-@media only screen and (max-width:800px) {
-  /* For tablets: */
-  .main {
-    width: 80%;
-    padding: 0;
-  }
-  .right {
-    width: 100%;
-  }
-}
-@media only screen and (max-width:500px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
-    width: 100%;
-  }
-}
-</style>
+  </style>
 </head>
-<body style="font-family:Verdana;">
+<body>
+  <div class="container">
+    <header class="section">
+      <h1>Welcome</h1>
+      <p style="font-size:25px;">歡迎來到我的網站</p>
+    </header>
 
-<div style="background-color:#f1f1f1;padding:15px;">
-  <h1>其他連結部分</h1>
+    <section>
+      <img src="5223.jpg" alt="網站照片" width="250" height="300">
+    </section>
 
-</div>
+    <section class="section">
+      <p style="font-size:25px;">這是我要給你看的影片</p>
+      <iframe
+        width="918"
+        height="516"
+        src="https://www.youtube.com/embed/MFwtpM21wWc"
+        title="展示影片"
+        allowfullscreen>
+      </iframe>
+    </section>
 
-<div style="overflow:auto">
-  <div class="menu">
-    <div class="menuitem"><a href="https://lichelu863-cloud.github.io/homepage/">classmate1</a></div>
-    <div class="menuitem"><a href="https://bm-architect.wixsite.com/bmportfilio">classmate2</a></div>
-    <div class="menuitem"><a href="https://jjkke645.github.io/assdd/index.html">classmate3</a></div>
-    
+    <section class="section">
+      <p style="font-size:25px;">統計圖表</p>
+      <canvas id="myChart"></canvas>
+    </section>
+
+    <script>
+      const xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+      const yValues = [80, 49, 44, 24, 15];
+      const barColors = ["red", "green", "blue", "orange", "brown"];
+
+      const ctx = document.getElementById('myChart');
+
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: xValues,
+          datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            title: {
+              display: true,
+              text: "World Wine Production 2018",
+              font: { size: 16 }
+            }
+          }
+        }
+      });
+    </script>
+
+    <section class="section">
+      <h2>其他連結部分</h2>
+      <div class="links">
+        <div class="link-card"><a href="https://lichelu863-cloud.github.io/homepage/">classmate1</a></div>
+        <div class="link-card"><a href="https://bm-architect.wixsite.com/bmportfilio">classmate2</a></div>
+        <div class="link-card"><a href="https://jjkke645.github.io/assdd/index.html">classmate3</a></div>
+      </div>
+    </section>
+
+    <main class="layout">
+      <article>
+        <h2>以上是我個人隨便製作</h2>
+        <p>製作不易還請見諒。</p>
+        <img src="Screenshot 2026-10-04 171745.png" alt="我的作品截圖">
+      </article>
+
+      <aside class="right-panel">
+        <h2>最左邊的欄位是其他三位同學的網站連結</h2>
+        <p>應該是有用的......</p>
+      </aside>
+    </main>
+
+    <footer class="section" style="text-align:center; font-size:12px;">
+      This web page is a part of a demonstration of fluid web design made by w3schools.com.
+    </footer>
   </div>
-
-  <div class="main">
-    <h2>以上是我個人隨便製作</h2>
-    <p>製作不易還請見諒。</p>
-    <img src="Screenshot 2026-10-04 171745.png" style="width:100%">
-  </div>
-
-  <div class="right">
-    <h2>最左邊的欄位是其他三位同學的網站連結</h2>
-    <p>應該是有用的......</p>
-    
-  </div>
-</div>
-
-
-<div style="background-color:#f1f1f1;text-align:center;padding:10px;margin-top:7px;font-size:12px;"> This web page is a part of a demonstration of fluid web design made by w3schools.com. Resize the browser window to see the content respond to the resizing.</div>
 </body>
 </html>
